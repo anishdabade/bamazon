@@ -1,0 +1,2 @@
+# bamazon
+Only for shopping 

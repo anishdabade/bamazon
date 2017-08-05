@@ -18,8 +18,7 @@ connection.connect(function(err) {
   if (err) throw err;
   
   display();
-  runFunction();
-  
+ 
 });
 
 function display() {
@@ -34,8 +33,8 @@ function display() {
 		
 				table.push([res[i].item_id,res[i].product_name,res[i].product_sales,res[i].department_name,res[i].price,res[i].stock_quantity]);				
         }
-
         console.log(table.toString());
+        runFunction();
 	});
 }
 
@@ -65,6 +64,7 @@ function runFunction() {
 
 		           if(current_quantity > answer.quantity) {
 
+		           		console.log("Thank you for shopping " + answer.quantity +" " + res[0].product_name + " and get ready to pay $" + res[0].price*answer.quantity);
 		           		console.log("Current quantity is: " + current_quantity);
 		           		console.log("Remaining quantity is: " + remaining_quantity);
 
@@ -79,8 +79,8 @@ function runFunction() {
 		           }
 		           else {
 		           		console.log("Insufficient Quantity, please come again tomorrow!");
+		           		display();
 		           }
-		           	connection.end();
 		    });
      	});
 }
